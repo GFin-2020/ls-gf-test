@@ -1,0 +1,15 @@
+{
+  "name": "Renault KPI Card",
+  "organization": "Renault Group",
+  "description": "KPI Card dark mode avec coins LED style R5",
+  "devMode": true,
+  "components": [{
+    "id": "renault-kpi-card",
+    "name": "Renault KPI Card",
+    "description": "KPI Card brandée Renault Group",
+    "resource": {
+      "js": "https://TONPSEUDO.github.io/ls-gf-test/ls-gf-test.js",
+      "config": "https://TONPSEUDO.github.io/ls-gf-test/ls-gf-test.json"
+    }
+  }]
+}
