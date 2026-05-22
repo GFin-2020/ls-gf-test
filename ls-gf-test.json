@@ -99,7 +99,7 @@
           "id": "font_family",
           "label": "Nom de la police",
           "type": "TEXTINPUT",
-          "defaultValue": "Arial"
+          "defaultValue": "NouvelR"
         },
         {
           "id": "value_size",
