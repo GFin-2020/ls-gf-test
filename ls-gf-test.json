@@ -1,0 +1,185 @@
+{
+  "data": [
+    {
+      "id": "concepts",
+      "label": "Données",
+      "elements": [
+        {
+          "id": "metric",
+          "label": "Valeur KPI",
+          "type": "METRIC",
+          "options": { "min": 1, "max": 1 }
+        }
+      ]
+    }
+  ],
+  "style": [
+    {
+      "id": "grp_content",
+      "label": "Contenu",
+      "elements": [
+        {
+          "id": "label",
+          "label": "Label (titre de la card)",
+          "type": "TEXTINPUT",
+          "defaultValue": "Mon KPI"
+        },
+        {
+          "id": "show_trend",
+          "label": "Afficher tendance",
+          "type": "CHECKBOX",
+          "defaultValue": true
+        },
+        {
+          "id": "trend_value",
+          "label": "Valeur tendance (ex: +8.4%)",
+          "type": "TEXTINPUT",
+          "defaultValue": "+8.4%"
+        },
+        {
+          "id": "trend_direction",
+          "label": "Direction",
+          "type": "SELECT",
+          "defaultValue": "up",
+          "options": [
+            { "label": "Hausse", "value": "up" },
+            { "label": "Baisse", "value": "down" },
+            { "label": "Stable", "value": "neutral" }
+          ]
+        },
+        {
+          "id": "show_subtitle",
+          "label": "Afficher sous-titre",
+          "type": "CHECKBOX",
+          "defaultValue": true
+        },
+        {
+          "id": "subtitle",
+          "label": "Sous-titre",
+          "type": "TEXTINPUT",
+          "defaultValue": "vs mois précédent"
+        },
+        {
+          "id": "show_bar",
+          "label": "Afficher barre de progression",
+          "type": "CHECKBOX",
+          "defaultValue": false
+        },
+        {
+          "id": "bar_value",
+          "label": "Progression (0-100)",
+          "type": "TEXTINPUT",
+          "defaultValue": "74"
+        },
+        {
+          "id": "show_icon",
+          "label": "Afficher icône",
+          "type": "CHECKBOX",
+          "defaultValue": false
+        },
+        {
+          "id": "icon_svg",
+          "label": "SVG de l'icône (balise <path d=...>)",
+          "type": "TEXTINPUT",
+          "defaultValue": ""
+        }
+      ]
+    },
+    {
+      "id": "grp_typo",
+      "label": "Typographie",
+      "elements": [
+        {
+          "id": "font_url",
+          "label": "URL police custom (laisser vide = Arial)",
+          "type": "TEXTINPUT",
+          "defaultValue": ""
+        },
+        {
+          "id": "font_family",
+          "label": "Nom de la police",
+          "type": "TEXTINPUT",
+          "defaultValue": "Arial"
+        },
+        {
+          "id": "value_size",
+          "label": "Taille valeur (px)",
+          "type": "TEXTINPUT",
+          "defaultValue": "32"
+        },
+        {
+          "id": "value_weight",
+          "label": "Graisse valeur",
+          "type": "SELECT",
+          "defaultValue": "700",
+          "options": [
+            { "label": "Light (300)",   "value": "300" },
+            { "label": "Regular (400)", "value": "400" },
+            { "label": "Medium (500)",  "value": "500" },
+            { "label": "Bold (700)",    "value": "700" },
+            { "label": "Black (900)",   "value": "900" }
+          ]
+        },
+        {
+          "id": "label_size",
+          "label": "Taille label (px)",
+          "type": "TEXTINPUT",
+          "defaultValue": "10"
+        },
+        {
+          "id": "text_align",
+          "label": "Alignement",
+          "type": "SELECT",
+          "defaultValue": "left",
+          "options": [
+            { "label": "Gauche", "value": "left" },
+            { "label": "Centre", "value": "center" },
+            { "label": "Droite", "value": "right" }
+          ]
+        },
+        {
+          "id": "value_color",
+          "label": "Couleur valeur",
+          "type": "FONT_COLOR",
+          "defaultValue": { "color": "#D0D4DA" }
+        },
+        {
+          "id": "label_color",
+          "label": "Couleur label",
+          "type": "FONT_COLOR",
+          "defaultValue": { "color": "#3A4050" }
+        }
+      ]
+    },
+    {
+      "id": "grp_style",
+      "label": "Style coins LED",
+      "elements": [
+        {
+          "id": "corner_color_idle",
+          "label": "Couleur coins (repos)",
+          "type": "FONT_COLOR",
+          "defaultValue": { "color": "#1A1E24" }
+        },
+        {
+          "id": "corner_color_hover",
+          "label": "Couleur coins (survol)",
+          "type": "FONT_COLOR",
+          "defaultValue": { "color": "#909AAA" }
+        },
+        {
+          "id": "corner_size",
+          "label": "Taille coins (px)",
+          "type": "TEXTINPUT",
+          "defaultValue": "28"
+        },
+        {
+          "id": "corner_thickness",
+          "label": "Épaisseur coins (px)",
+          "type": "TEXTINPUT",
+          "defaultValue": "5"
+        }
+      ]
+    }
+  ]
+}
