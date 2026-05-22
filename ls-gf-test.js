@@ -1,5 +1,5 @@
 /* global dscc */
-
+ 
 // ─── Helper : lire une valeur de style proprement ───────────────────────────
 function styleVal(style, key, fallback) {
   try {
@@ -11,9 +11,27 @@ function styleVal(style, key, fallback) {
     return fallback;
   }
 }
-
+ 
 // ─── Injecter la police custom si une URL est fournie ───────────────────────
 var _loadedFontUrl = null;
+ 
+// Préchargement NouvelR
+(function() {
+  var s = document.createElement("style");
+  s.textContent = [
+    "@font-face {",
+    "  font-family: \"NouvelR\";",
+    "  src: url(\"https://www.renault.fr/client/NouvelR-Regular-AH-a6ef79cbe0c9af2e.woff2\") format(\"woff2\");",
+    "  font-weight: 400;",
+    "}",
+    "@font-face {",
+    "  font-family: \"NouvelR\";",
+    "  src: url(\"https://www.renault.fr/client/NouvelR-Bold-AH-1c5ca002c4ab8beb.woff2\") format(\"woff2\");",
+    "  font-weight: 700;",
+    "}"
+  ].join("\n");
+  document.head.appendChild(s);
+})();
 function loadFont(url, family) {
   if (!url || url === _loadedFontUrl) return;
   _loadedFontUrl = url;
@@ -32,7 +50,7 @@ function loadFont(url, family) {
   ].join('\n');
   document.head.appendChild(style);
 }
-
+ 
 // ─── Générer les 4 coins SVG ────────────────────────────────────────────────
 function corners(size, thick, idleColor) {
   var s = parseInt(size) || 28;
@@ -56,11 +74,11 @@ function corners(size, thick, idleColor) {
     '<div class="r5-corner br">' + svg + '</div>'
   ].join('');
 }
-
+ 
 // ─── Rendu principal ─────────────────────────────────────────────────────────
 function drawViz(data) {
   var style = data.style;
-
+ 
   // Typo
   var fontUrl    = styleVal(style, 'font_url',     '');
   var fontFamily = styleVal(style, 'font_family',  'Arial');
@@ -70,7 +88,7 @@ function drawViz(data) {
   var textAlign  = styleVal(style, 'text_align',   'left');
   var valueColor = styleVal(style, 'value_color',  '#D0D4DA');
   var labelColor = styleVal(style, 'label_color',  '#3A4050');
-
+ 
   // Contenu
   var label       = styleVal(style, 'label',          'Mon KPI');
   var showTrend   = styleVal(style, 'show_trend',     true);
@@ -82,13 +100,13 @@ function drawViz(data) {
   var barValue    = parseInt(styleVal(style, 'bar_value', '74')) || 0;
   var showIcon    = styleVal(style, 'show_icon',      false);
   var iconSvg     = styleVal(style, 'icon_svg',       '');
-
+ 
   // Coins
   var cornerIdle  = styleVal(style, 'corner_color_idle',  '#1A1E24');
   var cornerHover = styleVal(style, 'corner_color_hover', '#909AAA');
   var cornerSize  = styleVal(style, 'corner_size',        '28');
   var cornerThick = styleVal(style, 'corner_thickness',   '5');
-
+ 
   // Valeur depuis la donnée Looker
   var metricValue = '—';
   try {
@@ -102,10 +120,10 @@ function drawViz(data) {
       }
     }
   } catch (e) { /* pas de donnée connectée */ }
-
+ 
   // Charger la police si URL fournie
   if (fontUrl) loadFont(fontUrl, fontFamily);
-
+ 
   // Trend couleur
   var trendBg, trendColor;
   if (trendDir === 'up') {
@@ -115,10 +133,10 @@ function drawViz(data) {
   } else {
     trendBg = 'rgba(30,35,45,0.6)'; trendColor = '#506070';
   }
-
+ 
   // Footer visible ?
   var hasFooter = (showTrend && trendVal) || (showSub && subtitle) || showBar;
-
+ 
   // Icône
   var iconHtml = '';
   if (showIcon && iconSvg) {
@@ -128,7 +146,7 @@ function drawViz(data) {
       + iconSvg
       + '</svg></div>';
   }
-
+ 
   // HTML
   var html = [
     '<style>',
@@ -195,7 +213,7 @@ function drawViz(data) {
     '    background: rgba(80,110,150,0.5); border-radius: 1px;',
     '  }',
     '</style>',
-
+ 
     '<div class="r5-card">',
       corners(cornerSize, cornerThick, cornerIdle),
       iconHtml,
@@ -209,9 +227,9 @@ function drawViz(data) {
       showBar ? '<div class="r5-bar-track"><div class="r5-bar-fill"></div></div>' : '',
     '</div>'
   ].join('');
-
+ 
   document.body.innerHTML = html;
 }
-
+ 
 // ─── Branchement Looker Studio ───────────────────────────────────────────────
 dscc.subscribeToData(drawViz, { transform: dscc.objectTransform });
