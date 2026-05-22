@@ -8,8 +8,8 @@
     "name": "Renault KPI Card",
     "description": "KPI Card brandée Renault Group",
     "resource": {
-      "js": "https://TONPSEUDO.github.io/ls-gf-test/ls-gf-test.js",
-      "config": "https://TONPSEUDO.github.io/ls-gf-test/ls-gf-test.json"
+      "js": "https://GFin-2020.github.io/ls-gf-test/ls-gf-test.js",
+      "config": "https://GFin-2020.github.io/ls-gf-test/ls-gf-test.json"
     }
   }]
 }
